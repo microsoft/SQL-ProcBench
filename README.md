@@ -38,8 +38,12 @@ The file 'SQL-ProcBench Schema.txt' contains details about the augmented TPCDS s
 
 The file 'indexes.text' contains the information on indexes and index creation statements.
 
-#### File Naming Convention:
-Stored procedures are named as proc\_\<i\>\_\<name\>, scalar UDFs are named as sudf\_\<i\>\_\<name\>, table valued functions named as tvf\_\<i\>\_\<name\> and triggers are named as trig\_\<i\>\_\<name\>; where \<i\> is a number identifying the object and \<name\> is the name of the object as created inside the database.
+***File Naming Convention:*** Stored procedures are named as proc\_\<i\>\_\<name\>, scalar UDFs are named as sudf\_\<i\>\_\<name\>, table valued functions named as tvf\_\<i\>\_\<name\> and triggers are named as trig\_\<i\>\_\<name\>; where \<i\> is a number identifying the object and \<name\> is the name of the object as created inside the database.
+
+## Setup
+1. Create the required tables and indexes using the SQL-ProcBench Schema.txt and indexes.txt files.
+2. Create procedures by using the create statement commands from the appropriate SQL dialect.
+3. The query examples are given along with each procedure, which can be used to run it. 
 
 ### Known limitations:
 1) The primary implementation of the benchmark has been done in T-SQL which is then translated to the other dialects. PLPgSQL and PLSQL do not have table variables and these have been implemented using set of records for some of the objects. Implementation for a few other objects which use table variables in these two dialects is still ongoing.
