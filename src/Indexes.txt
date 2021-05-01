@@ -1,0 +1,18 @@
+Index Creation Statements (in T-SQL)
+
+1) clustered columnstore indexes for history tables.
+CREATE CLUSTERED COLUMNSTORE INDEX cci_ws ON web_sales_history;  
+CREATE CLUSTERED COLUMNSTORE INDEX cci_wrh ON web_returns_history;  
+CREATE CLUSTERED COLUMNSTORE INDEX cci_cs ON catalog_sales_history;  
+CREATE CLUSTERED COLUMNSTORE INDEX cci_crh ON catalog_returns_history;  
+CREATE CLUSTERED COLUMNSTORE INDEX cci_ssh ON store_sales_history;
+CREATE CLUSTERED COLUMNSTORE INDEX cci_srh ON store_returns_history;
+CREATE CLUSTERED COLUMNSTORE INDEX cci_ih ON inventory_history; 
+
+2) non-clustered B-tree indexes on sales and inventory tables
+CREATE INDEX csDate on catalog_sales (cs_sold_date_sk);
+CREATE INDEX ssDate on store_sales (ss_sold_date_sk);
+CREATE INDEX wsDate on web_sales (ws_sold_date_sk);
+CREATE INDEX invDate on inventory (inv_date_sk);
+
+3) All non-history tables fact tables and dimension tables have clustered indexes on their primary key attributes; which were created as part of the create table statements itself. 
