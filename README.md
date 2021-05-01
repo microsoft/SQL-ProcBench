@@ -2,7 +2,7 @@
 
 Procedural extensions of SQL have been in existence for many decades now. However, little is known about their magnitude of usage and their complexity in real-world workloads. Procedural code executing in a RDBMS is known to have inefficiencies and limitations; as a result there have been several efforts to address this problem. However, the lack of understanding of their use in real workloads makes it challenging to (a) motivate new work in this area, (b) identify research challenges and opportunities, and (c) demonstrate impact of novel work. To address these limitations, we introduce ***SQL-ProcBench***, an open benchmark for procedural workloads in RDBMSs. 
 
-More details about this benchmark can be found in the following VLDB publication:
+SQL-ProcBench has been carefully and systematically created to model real production scenarios. We have conducted an in-depth analysis of thousands of procedures from real workloads. The insights gained from our analysis has been used to create this benchmark so as to ensure that the complexity, usage patterns and scenarios reflect real workloads. More details about this benchmark can be found in the following VLDB publication:
 
 Procedural Extensions of SQL: Understanding their usage in the wild. \
 Surabhi Gupta and Karthik Ramachandra. \
