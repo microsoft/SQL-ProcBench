@@ -1,51 +1,49 @@
 # SQL-ProcBench
 
-Procedural extensions of SQL have been in existence for many decades now. However, little is known about their magnitude of usage and their complexity in real-world workloads. Procedural code executing in a RDBMS is known to have inefficiencies and limitations; as a result there have been several efforts to address this problem. However, the lack of understanding of their use in
-real workloads makes it challenging to (a) motivate new work in this area, (b) identify research challenges and opportunities, and (c) demonstrate impact of novel work. 
+Procedural extensions of SQL have been in existence for many decades now. However, little is known about their magnitude of usage and their complexity in real-world workloads. Procedural code executing in a RDBMS is known to have inefficiencies and limitations; as a result there have been several efforts to address this problem. However, the lack of understanding of their use in real workloads makes it challenging to (a) motivate new work in this area, (b) identify research challenges and opportunities, and (c) demonstrate impact of novel work. To address these limitations, we introduce ***SQL-ProcBench***, an open benchmark for procedural workloads in RDBMSs. 
 
-To address this limitations, we introduce SQL-ProcBench, an open benchmark for procedural workloads in RDBMSs. This repository contains the SQL-ProcBench benchmark source code in 3 SQL dialects: T-SQL, PLPgSQL and PLSQL.
+More details about this benchmark can be found in the following VLDB publication:
+
+Procedural Extensions of SQL: Understanding their usage in the wild. \
+Surabhi Gupta and Karthik Ramachandra. \
+PVLDB, 14(8): 1378 - 1391, 2021. doi:10.14778/3457390.3457402 
+
+This repository contains the SQL-ProcBench benchmark source code in 3 SQL dialects: T-SQL, PLPgSQL and PLSQL.
 
 ## Directory Structure	
-
-src/
-   --/T-SQL
-      --/Scalar UDFs
-      --/Stored Procedures
-      --/Table Valued UDFs
-      --/Triggers
-   --/PLSQL
-      --/Scalar UDFs
-      --/Stored Procedures
-      --/Table Valued UDFs
-      --/Triggers
-   --/PLPgSQL
-      --/Scalar UDFs
-      --/Stored Procedures
-      --/Table Valued UDFs
-      --/Triggers
-   SQL-ProcBench Schema.txt
-   indexes.txt
+<pre>
+src/ 
+  T-SQL/ 
+    Scalar UDFs/
+    Stored Procedures/
+    Table Valued UDFs/
+    Triggers/
+  PLSQL/
+    Scalar UDFs/
+    Stored Procedures/
+    Table Valued UDFs/
+    Triggers/
+  PLPgSQL/
+    Scalar UDFs/
+    Stored Procedures/
+    Table Valued UDFs/
+    Triggers/
+  SQL-ProcBench Schema.txt
+  indexes.txt
+</pre>
 
 There is a top level directory for each of the three dialects. Each top directory contains 4 sub-directories - one each for Scalar UDFs, Table UDFs, Stored Procedures and Triggers. Each of these directories contain the individual object files which follow the naming convention as described below. Each file has an object definition as a CREATE statement and some also include invocation query examples with plausible parameter values.
 
-### File Naming Convention:
-Stored procedures are named as proc_<i>_<name>, scalar UDFs are named as sudf_<i>_<name>, table valued functions named as tvf_<i>_<name> and triggers are named as trig_<i>_<name>; where <i> is a number identifying the object and <name> is the name of the object as created inside the database.
-	
 The file 'SQL-ProcBench Schema.txt' contains details about the augmented TPCDS schema used for procbench and includes the DML statements used to create the augmented tables.
 
 The file 'indexes.text' contains the information on indexes and index creation statements.
 
+#### File Naming Convention:
+Stored procedures are named as proc\_\<i\>\_\<name\>, scalar UDFs are named as sudf\_\<i\>\_\<name\>, table valued functions named as tvf\_\<i\>\_\<name\> and triggers are named as trig\_\<i\>\_\<name\>; where \<i\> is a number identifying the object and \<name\> is the name of the object as created inside the database.
+
 ### Known limitations:
 1) The primary implementation of the benchmark has been done in T-SQL which is then translated to the other dialects. PLPgSQL and PLSQL do not have table variables and these have been implemented using set of records for some of the objects. Implementation for a few other objects which use table variables in these two dialects is still ongoing.
 2) PLPgSQL and PLSQL do not support non-result accumulating select statements inside stored procedures. These have been implemented using REF CURSORS in both these dialects.
-
-## Publication
-
-More details about this benchmark can be found in the following VLDB publication:
-
-Procedural Extensions of SQL: Understanding their usage in the wild. 
-Surabhi Gupta and Karthik Ramachandra. 
-PVLDB, 14(8): 1378 - 1391, 2021. doi:10.14778/3457390.3457402
 
 
 ## Contributing
