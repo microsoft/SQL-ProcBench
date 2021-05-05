@@ -4,7 +4,7 @@ Procedural extensions of SQL have been in existence for many decades now. Howeve
 
 SQL-ProcBench has been carefully and systematically created to model real production scenarios. We have conducted an in-depth analysis of thousands of procedures from real workloads. The insights gained from our analysis has been used to create this benchmark so as to ensure that the complexity, usage patterns and scenarios reflect real workloads. More details about this benchmark can be found in the following VLDB publication:
 
-Procedural Extensions of SQL: Understanding their usage in the wild. \
+[Procedural Extensions of SQL: Understanding their usage in the wild.](http://www.vldb.org/pvldb/vol14/p1378-ramachandra.pdf) \
 Surabhi Gupta and Karthik Ramachandra. \
 PVLDB, 14(8): 1378 - 1391, 2021. doi:10.14778/3457390.3457402 
 
