@@ -4,6 +4,8 @@ The create table statements for these additional fact tables are given below.
 
 Note that Primary key and unique constraints are not needed for history tables because these constraints are already specified in the non-history tables; and the history tables only undergo bulk insertions from their non-history counterparts(details in the paper).
 
+Storing data in the history and non-history tables : We recommend loading all TPC-DS data directly into the history fact tables. After this, one can use the '[insert into .. (select .. from .. where..)]' SQL statement to load the most recent 1 year data from the history tables to their non-history counterparts. The predicates in the `where` clause should be chosen depending on how many years' data one wants to store in the non-history tables.    
+
 create table store_sales_history
 (
     ss_sold_date_sk           integer                       ,
